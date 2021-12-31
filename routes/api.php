@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Roles\RoleController;
+use App\Http\Controllers\Roles\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,10 @@ Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
 Route::post('/forgot',[UserController::class,'forgot']);
 
+
+Route::post('/add/role',[RoleController::class,'addRole']);
+Route::post('/delete/role/{id}',[RoleController::class,'deleteRole']);
+Route::post('/edit/role/{id}',[RoleController::class,'editRole']);
+Route::post('/update/role/{id}',[RoleController::class,'updateRole']);
+Route::get('/role/list',[RoleController::class,'listRole']);
+Route::post('/add/permission',[PermissionController::class,'addPermission']);

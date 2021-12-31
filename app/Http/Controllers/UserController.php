@@ -90,6 +90,8 @@ function forgot_password(Request $request){
         return view('forgot_password',['id'=>$id]);
 }
 function forgot_save(Request $request){
+
+
         $update = new User();
         $update->exists = true;
         $update->id = decrypt($request->id);
