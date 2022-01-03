@@ -31,4 +31,24 @@ class PermissionController extends Controller
 
         }
     }
+
+    function listPermission(Request $request){
+
+        $data = Permission::all();
+        return response($data);
+    }
+    function deletePermission(Request $request){
+        try {
+
+            $del = Permission::where('id', $request->id)->delete();
+
+            if ($del == true) {
+                return response(['success' => 201]);
+            } else {
+                return response(['error' => 202]);
+            }
+        }catch (\Exception $exception){
+            return $exception->getMessage();
+        }
+    }
 }
